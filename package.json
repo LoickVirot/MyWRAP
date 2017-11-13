@@ -1,0 +1,18 @@
+{
+  "name": "nodebaseapi",
+  "version": "1.0.0",
+  "description": "A nodejs application to manage REST requests and user auth",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "jsonwebtoken": "^8.1.0",
+    "mongoose": "^4.13.1",
+    "server": "^1.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Loïck Virot",
+  "license": "ISC"
+}
