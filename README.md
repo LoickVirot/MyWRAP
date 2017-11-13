@@ -13,7 +13,7 @@ Install packages
 npm install
 ```
 
-Lauch app
+Launch app
 ```bash
 npm start
 ```
