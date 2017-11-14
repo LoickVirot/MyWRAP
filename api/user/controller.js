@@ -1,5 +1,4 @@
-const { json } = require('server/reply')
-const bcrypt = require('bcrypt')
+const { json, status } = require('server/reply')
 const User = require('../../model/User')
 
 module.exports = {
@@ -12,18 +11,18 @@ module.exports = {
     try {
       return json(await User.findById(ctx.params.id))
     } catch (err) {
-      return json(err)
+      return status(400).json(err)
     }
   },
 
   newUser: async ctx => {
     newUser = new User(ctx.data)
-    newUser.password = await bcrypt.hash(newUser.password, 10)
     try{
-      return json(await newUser.save())
+      await newUser.save()
     } catch(err) {
-      return json(err)
+      return status(400).json(err)
     }
+    return json(newUser.username)
   },
 
   updateUser: async ctx => {
@@ -32,7 +31,7 @@ module.exports = {
     try {
       return json(await user.save())
     } catch (err) {
-      return json(err)
+      return status(400).json(err)
     }
   },
 
@@ -40,8 +39,8 @@ module.exports = {
     try {
       await User.findById(ctx.params.id).remove()
     } catch(err) {
-      return json(err)
+      return status(400).json(err)
     }
-    return json("OK")
+    return json("User " + ctx.params.id + " deleted")
   }
 }
