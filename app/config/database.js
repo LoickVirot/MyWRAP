@@ -1,5 +1,5 @@
 var dbSettings = {
-  host: '172.19.0.2',
+  host: '172.18.0.3',
   port: 27017,
   database: 'testserverjs',
   user: null,
