@@ -10,8 +10,5 @@ server(
   ctx => {
     ctx.mongoose = mongoose
   },
-  ctx => {
-    expect(ctx.secure).toBe(true);
-  },
   require('./api/routes.js')
 )
